@@ -5,11 +5,12 @@ import Summary from "./Summary";
 
 const Character = props => {
   const [isLoading, fetchedData] = useHttp(
-    "https://swapi.co/api/people/" + props.selectedChar + "/",
+    "https://swapi.co/api/people/" + props.selectedChar,
     [props.selectedChar]
   );
 
   let loadedCharacter = null;
+
   if (fetchedData) {
     loadedCharacter = {
       id: props.selectedChar,
@@ -24,14 +25,13 @@ const Character = props => {
     };
   }
 
-  //to perform componentWillUncount()
   useEffect(() => {
     return () => {
       console.log("component did unmount");
     };
   }, []);
 
-  let content = <p> Loading Character data... </p>;
+  let content = <p>Loading Character...</p>;
 
   if (!isLoading && loadedCharacter) {
     content = (
@@ -45,9 +45,8 @@ const Character = props => {
       />
     );
   } else if (!isLoading && !loadedCharacter) {
-    content = <p> Failed to fetch character. </p>;
+    content = <p>Failed to fetch character.</p>;
   }
-
   return content;
 };
 
