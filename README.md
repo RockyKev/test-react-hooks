@@ -1,4 +1,4 @@
-## This is the PRE-HOOKS version of the App
+## This is the POST-HOOKS version of the App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
